@@ -1,1 +1,375 @@
+<!DOCTYPE html>
+ <html>
+  <head>
 
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <!-- // viewport settings -->
+
+    <title>Data Collector for AGOL</title>
+
+   
+    <link rel="stylesheet" href="https://js.arcgis.com/4.26/esri/themes/light/main.css" />
+    <script src="https://js.arcgis.com/4.26/"></script>
+
+    <!-- MAKING MY MAP FULL SCREEN -->
+    <style>
+        html,
+        body,
+        #viewDiv {
+         padding: 0;
+         margin: 0;
+         height: 100%;
+         width: 100%;
+        }
+
+      .addRecordBtn {
+        position: absolute;
+        z-index: 10;
+        top: 10px;
+        right: 10px;
+        background-color: #0079c1;
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .addRecordBtn:hover {
+        background-color: #005a87;
+      }
+
+    </style>
+
+    <!-- ADDING MODULES -->
+    <script>
+        require([ "esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate", "esri/widgets/Search", "esri/layers/FeatureLayer", "esri/PopupTemplate", "esri/Graphic", "esri/geometry/Point", "esri/symbols/SimpleMarkerSymbol"
+ ], ( esriConfig, Map, MapView, Locate, Search, FeatureLayer, PopupTemplate, Graphic, Point, SimpleMarkerSymbol) => {
+         
+
+         esriConfig.apiKey = "AAPK7376aa81e19047f49d515b880359b35fORHl2lQWZpmaRrOaLHCMcxcMKqhisFhVF-IikMIsLi4VBigmgkhwqrJeNcJmX2dL";
+
+
+
+         const map = new Map({
+            basemap: "satellite"
+        });
+
+        var view = new MapView({
+            container: "viewDiv",
+            map: map,
+            center: [120.9820, 23.9739], // longitude, latitude
+            zoom: 7 // zoom level
+        });
+
+        const locateBtn = new Locate({
+          view: view
+        });
+
+        // Add the locate widget to the top left corner of the view
+        view.ui.add(locateBtn, {
+          position: "top-left"
+        });
+
+		const template = new PopupTemplate({
+		title: "Taipei",
+		content: [
+			{
+				type: "text",
+				text: "Population Size: 2,646,204"
+			},
+			{
+                type: "text",
+                text: "Land Size: 105.2 sq mi"
+            },
+            {
+                type: "text",
+                text: "Mayor: Chiang Wan-an"
+			},
+			{
+                type: "text",
+                text: "Transportation System Ranking: less than 40th"
+            },
+			{
+                type: "text",
+                text: "Transportation: MRT, bus, YouBike, and taxi"
+            },
+			{
+                type: "text",
+                text: "Resturants: 130,000+"
+            },
+			{
+                type: "text",
+                text: "Hotels: 500+"
+            },
+		]
+		});
+
+        // Create featurelayer from feature service 
+        const layer = new FeatureLayer({ 
+        // URL to the service 
+        url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/survey123_ec3fb2b3518f49f2921cbe9749af7c5e_results/FeatureServer", //My item URL Goes Here
+		outFields: ["*"],
+    	popupTemplate: template
+        });
+
+        map.add(layer);
+
+	var symbol = new SimpleMarkerSymbol({
+		color: [226, 119, 40],  // Orange color
+		outline: {
+			color: [255, 255, 255],  // White color
+			width: 1
+		}
+	});
+
+	var tokyoPoint = new Point({
+        longitude: 139.6917,  // Longitude of Tokyo
+        latitude: 35.6895  // Latitude of Tokyo
+    });
+
+	var tokyoGraphic = new Graphic({
+    geometry: tokyoPoint,
+    symbol: symbol,
+    popupTemplate: {
+        title: "Tokyo",
+        content: [
+            {
+                type: "text",
+                text: "Population Size: 9,273,000"
+            },
+			{
+                type: "text",
+                text: "Land Size: 238.9 sq mi"
+            },
+            {
+                type: "text",
+                text: "Mayor: Yuriko Koike"
+            },
+			{
+                type: "text",
+                text: "Transportation System Ranking: 7th"
+            },
+			{
+                type: "text",
+                text: "Transportation: Tokyo Metro, Toei Subway, JR East, and Toei Bus"
+            },
+			{
+                type: "text",
+                text: "Resturants: 60,000+"
+            },
+			{
+                type: "text",
+                text: "Hotels: 3,000+"
+            },
+        ]
+    }
+});
+
+view.graphics.add(tokyoGraphic);
+
+	var parisPoint = new Point({
+    longitude: 2.3522,  // Longitude of Paris
+    latitude: 48.8566  // Latitude of Paris
+});
+
+	var parisGraphic = new Graphic({
+		geometry: parisPoint,
+		symbol: symbol,
+		popupTemplate: {
+			title: "Paris",
+			content: [
+            {
+                type: "text",
+                text: "Population Size: 2,148,271"
+            },
+			{
+                type: "text",
+                text: "Land Size: 40.7 sq mi"
+            },
+            {
+                type: "text",
+                text: "Mayor: Anne Hidalgo"
+            },
+            {
+                type: "text",
+                text: "Transportation System Ranking: 8th"
+            },
+			{
+                type: "text",
+                text: "Transportation: metro, bus, tram, RER, and train"
+            },
+			{
+                type: "text",
+                text: "Resturants: 13,000+"
+            },
+			{
+                type: "text",
+                text: "Hotels: 1,500+"
+            },
+        ]
+    }
+});
+
+	view.graphics.add(parisGraphic);
+
+	var moscowPoint = new Point({
+		longitude: 37.6176,  // Longitude of Moscow
+		latitude: 55.7558  // Latitude of Moscow
+	});
+
+	var moscowGraphic = new Graphic({
+		geometry: moscowPoint,
+		symbol: symbol,
+		popupTemplate: {
+			title: "Moscow",
+			content: [
+            {
+                type: "text",
+                text: "Population Size: 12,506,468"
+            },
+			{
+                type: "text",
+                text: "Land Size: 970 sq mi"
+            },
+            {
+                type: "text",
+                text: "Mayor: Sergey Sobyanin"
+            },
+            {
+                type: "text",
+                text: "Transportation System Ranking: 15th"
+            },
+			{
+                type: "text",
+                text: "Transportation: metro, bus, tram, trolleybus, monorail, and train"
+            },
+			{
+                type: "text",
+                text: "Resturants: 13,000+"
+            },
+			{
+                type: "text",
+                text: "Hotels: 1,000+"
+            },
+        ]
+    }
+});
+
+view.graphics.add(moscowGraphic);
+
+var newYorkPoint = new Point({
+    longitude: -74.0060,  // Longitude of New York
+    latitude: 40.7128  // Latitude of New York
+});
+
+var newYorkGraphic = new Graphic({
+    geometry: newYorkPoint,
+    symbol: symbol,
+    popupTemplate: {
+        title: "New York",
+        content: [
+            
+            {
+                type: "text",
+                text: "Population Size: 8,398,748"
+            },
+			{
+                type: "text",
+                text: "Land Size: 302.6 sq mi"
+            },
+            {
+                type: "text",
+                text: "Mayor: Bill de Blasio"
+            },
+            {
+                type: "text",
+                text: "Transportation System Ranking: 2nd"
+            },
+			{
+                type: "text",
+                text: "Transportation: metro, bus, taxi, bike, ferry, and train"
+            },
+			{
+                type: "text",
+                text: "Resturants: 27,000+"
+            },
+			{
+                type: "text",
+                text: "Hotels: 700+"
+            },
+        ]
+    }
+});
+
+view.graphics.add(newYorkGraphic);
+
+var romePoint = new Point({
+    longitude: 12.4964,  // Longitude of Rome
+    latitude: 41.9028  // Latitude of Rome
+});
+
+var romeGraphic = new Graphic({
+    geometry: romePoint,
+    symbol: symbol,
+    popupTemplate: {
+        title: "Rome",
+        content: [
+		{
+                type: "text",
+                text: "Population Size: 2,870,336"
+            },
+            {
+                type: "text",
+                text: "Land Size: 496.3 sq mi"
+            },
+            {
+                type: "text",
+                text: "Mayor: Virginia Raggi"
+            },
+            {
+                type: "text",
+                text: "Transportation System Ranking: below 40th"
+            },
+            {
+                type: "text",
+                text: "Transportation: motors, bus, tram, and train"
+            },
+            {
+                type: "text",
+                text: "Restaurants: 15,000 Pizzeria and 8000 restaurants"
+            },
+            {
+                type: "text",
+                text: "Hotels: 1,600+"
+            }
+        ]
+    }
+});
+
+view.graphics.add(romeGraphic);
+
+         // Create the search widget and add it to the top right corner of the view
+         var searchWidget = new Search({
+            view: view
+        });
+
+        view.ui.add(searchWidget, {
+            position: "top-right"
+        });
+    });
+
+    </script>
+
+  </head>
+  <body>
+   <!-- hello world text to check if everything worked -->
+   
+   
+    <div id="viewDiv"></div>
+
+  </body>
+</html>
