@@ -55,7 +55,7 @@
 
 
          const map = new Map({
-            basemap: "satellite"
+            basemap: "osm"
         });
 
         var view = new MapView({
@@ -99,7 +99,7 @@
             },
 			{
                 type: "text",
-                text: "Resturants: 130,000+"
+                text: "Resturants: 500+"
             },
 			{
                 type: "text",
@@ -340,7 +340,7 @@ var romeGraphic = new Graphic({
             },
             {
                 type: "text",
-                text: "Restaurants: 15,000 Pizzeria and 8000 restaurants"
+                text: "Restaurants: 15,000 Pizzeria and 8,000 restaurants"
             },
             {
                 type: "text",
@@ -351,6 +351,593 @@ var romeGraphic = new Graphic({
 });
 
 view.graphics.add(romeGraphic);
+
+var londonPoint = new Point({
+    longitude: -0.1276,  // Longitude of London
+    latitude: 51.5074  // Latitude of London
+});
+
+var londonGraphic = new Graphic({
+    geometry: londonPoint,
+    symbol: symbol,
+    popupTemplate: {
+        title: "London",
+        content: [
+            {
+                type: "text",
+                text: "Population Size: 8,982,000"
+            },
+            {
+                type: "text",
+                text: "Land Size: 607 sq mi"
+            },
+            {
+                type: "text",
+                text: "Mayor: Sadiq Khan"
+            },
+            {
+                type: "text",
+                text: "Transportation System Ranking: 10th"
+            },
+            {
+                type: "text",
+                text: "Transportation: metro, bus, taxi, bike, ferry, and train"
+            },
+            {
+                type: "text",
+                text: "Restaurants: 15,000+"
+            },
+            {
+                type: "text",
+                text: "Hotels: 1,500+"
+            }
+        ]
+    }
+});
+
+view.graphics.add(londonGraphic);
+
+var vancouverPoint = new Point({
+    longitude: -123.1216,  // Longitude of Vancouver
+    latitude: 49.2827  // Latitude of Vancouver
+});
+
+var vancouverGraphic = new Graphic({
+    geometry: vancouverPoint,
+    symbol: symbol,
+    popupTemplate: {
+        title: "Vancouver",
+        content: [
+            {
+                type: "text",
+                text: "Population Size: 678,984"
+            },
+            {
+                type: "text",
+                text: "Land Size: 84.7 sq mi"
+            },
+            {
+                type: "text",
+                text: "Mayor: Ken Sim"
+            },
+            {
+                type: "text",
+                text: "Transportation System Ranking: 22th"
+            },
+            {
+                type: "text",
+                text: "Transportation: buses, the SeaBus ferry, the SkyTrain"
+            },
+            {
+                type: "text",
+                text: "Restaurants: 2,800+"
+            },
+            {
+                type: "text",
+                text: "Hotels: 100+"
+            }
+        ]
+    }
+});
+
+view.graphics.add(vancouverGraphic);
+
+var amsterdamPoint = new Point({
+    longitude: 4.8952,  // Longitude of Amsterdam
+    latitude: 52.3702  // Latitude of Amsterdam
+});
+
+var amsterdamGraphic = new Graphic({
+    geometry: amsterdamPoint,
+    symbol: symbol,
+    popupTemplate: {
+        title: "Amsterdam",
+        content: [
+            {
+                type: "text",
+                text: "Population Size: 1,182,000"
+            },
+            {
+                type: "text",
+                text: "Land Size: 84.68 sq mi"
+            },
+            {
+                type: "text",
+                text: "Mayor: Femke Halsema"
+            },
+            {
+                type: "text",
+                text: "Transportation System Ranking: 11th"
+            },
+            {
+                type: "text",
+                text: "Transportation: Amsterdam tram, Bus, Ferry, Metro, Train"
+            },
+            {
+                type: "text",
+                text: "Restaurants: 1,000+"
+            },
+            {
+                type: "text",
+                text: "Hotels: 400+"
+            }
+        ]
+    }
+});
+
+view.graphics.add(amsterdamGraphic);
+
+var honoluluPoint = new Point({
+    longitude: -157.8583,  // Longitude of Honolulu
+    latitude: 21.3069  // Latitude of Honolulu
+});
+
+var honoluluGraphic = new Graphic({
+    geometry: honoluluPoint,
+    symbol: symbol,
+    popupTemplate: {
+        title: "Honolulu",
+        content: [
+            {
+                type: "text",
+                text: "Population Size: 347,397"
+            },
+            {
+                type: "text",
+                text: "Land Size: 68.4 sq mi"
+            },
+            {
+                type: "text",
+                text: "Mayor: Rick Blangiardi"
+            },
+            {
+                type: "text",
+                text: "Transportation System Ranking: below 40th"
+            },
+            {
+                type: "text",
+                text: "Transportation: TheBus, taxi, rental car"
+            },
+            {
+                type: "text",
+                text: "Restaurants: 1,000+"
+            },
+            {
+                type: "text",
+                text: "Hotels: 300+"
+            }
+        ]
+    }
+});
+
+view.graphics.add(honoluluGraphic);
+
+var barcelonaPoint = new Point({
+    longitude: 2.1734,  // Longitude of Barcelona
+    latitude: 41.3851  // Latitude of Barcelona
+});
+
+var barcelonaGraphic = new Graphic({
+    geometry: barcelonaPoint,
+    symbol: symbol,
+    popupTemplate: {
+        title: "Barcelona",
+        content: [
+            {
+                type: "text",
+                text: "Population Size: 1,620,343"
+            },
+            {
+                type: "text",
+                text: "Land Size: 39.2 sq mi"
+            },
+            {
+                type: "text",
+                text: "Mayor: Jaume Collboni"
+            },
+            {
+                type: "text",
+                text: "Transportation System Ranking: 21th"
+            },
+            {
+                type: "text",
+                text: "Transportation: metro, bus, tram, trains"
+            },
+            {
+                type: "text",
+                text: "Restaurants: 7,500+"
+            },
+            {
+                type: "text",
+                text: "Hotels: 500+"
+            }
+        ]
+    }
+});
+
+view.graphics.add(barcelonaGraphic);
+
+var sydneyPoint = new Point({
+    longitude: 151.2093,  // Longitude of Sydney
+    latitude: -33.8688  // Latitude of Sydney
+});
+
+var sydneyGraphic = new Graphic({
+    geometry: sydneyPoint,
+    symbol: symbol,
+    popupTemplate: {
+        title: "Sydney",
+        content: [
+            {
+                type: "text",
+                text: "Population Size: 5,312,163"
+            },
+            {
+                type: "text",
+                text: "Land Size: 4,775.2 sq mi"
+            },
+            {
+                type: "text",
+                text: "Mayor: Clover Moore"
+            },
+            {
+                type: "text",
+                text: "Transportation System Ranking: 14th"
+            },
+            {
+                type: "text",
+                text: "Transportation: Taxis, water, bus, train, metro"
+            },
+            {
+                type: "text",
+                text: "Restaurants: 3,000+"
+            },
+            {
+                type: "text",
+                text: "Hotels: 500+"
+            }
+        ]
+    }
+});
+
+view.graphics.add(sydneyGraphic);
+
+var capeTownPoint = new Point({
+    longitude: 18.4241,  // Longitude of Cape Town
+    latitude: -33.9249  // Latitude of Cape Town
+});
+
+var capeTownGraphic = new Graphic({
+    geometry: capeTownPoint,
+    symbol: symbol,
+    popupTemplate: {
+        title: "Cape Town",
+        content: [
+            {
+                type: "text",
+                text: "Population Size: 4,978,000"
+            },
+            {
+                type: "text",
+                text: "Land Size: 944 sq mi"
+            },
+            {
+                type: "text",
+                text: "Mayor: Geordin Hill-Lewis"
+            },
+            {
+                type: "text",
+                text: "Transportation System Ranking: below 40th"
+            },
+            {
+                type: "text",
+                text: "Transportation: rental car, merto, bus, combi, rikki"
+            },
+            {
+                type: "text",
+                text: "Restaurants: 1,500+"
+            },
+            {
+                type: "text",
+                text: "Hotels: 300+"
+            }
+        ]
+    }
+});
+
+view.graphics.add(capeTownGraphic);
+
+var istanbulPoint = new Point({
+    longitude: 28.9784,  // Longitude of Istanbul
+    latitude: 41.0082  // Latitude of Istanbul
+});
+
+var istanbulGraphic = new Graphic({
+    geometry: istanbulPoint,
+    symbol: symbol,
+    popupTemplate: {
+        title: "Istanbul",
+        content: [
+            {
+                type: "text",
+                text: "Population Size: 15,029,231"
+            },
+            {
+                type: "text",
+                text: "Land Size: 2,109 sq mi"
+            },
+            {
+                type: "text",
+                text: "Mayor: Ekrem İmamoğlu"
+            },
+            {
+                type: "text",
+                text: "Transportation System Ranking: 25th"
+            },
+            {
+                type: "text",
+                text: "Transportation: buses, trams, taxi"
+            },
+            {
+                type: "text",
+                text: "Restaurants: 10,000+"
+            },
+            {
+                type: "text",
+                text: "Hotels: 1,000+"
+            }
+        ]
+    }
+});
+
+view.graphics.add(istanbulGraphic);
+
+var singaporePoint = new Point({
+    longitude: 103.8198,  // Longitude of Singapore
+    latitude: 1.3521  // Latitude of Singapore
+});
+
+var singaporeGraphic = new Graphic({
+    geometry: singaporePoint,
+    symbol: symbol,
+    popupTemplate: {
+        title: "Singapore",
+        content: [
+            {
+                type: "text",
+                text: "Population Size: 6,043,875"
+            },
+            {
+                type: "text",
+                text: "Land Size: 283.5 sq mi"
+            },
+            {
+                type: "text",
+                text: "Prime Minister: Lee Hsien Loong"
+            },
+            {
+                type: "text",
+                text: "Transportation System Ranking: 4th"
+            },
+            {
+                type: "text",
+                text: "Transportation: MRT, bus, taxi"
+            },
+            {
+                type: "text",
+                text: "Restaurants: 6,500+"
+            },
+            {
+                type: "text",
+                text: "Hotels: 400+"
+            }
+        ]
+    }
+});
+
+view.graphics.add(singaporeGraphic);
+
+var kyotoPoint = new Point({
+    longitude: 135.7681,  // Longitude of Kyoto
+    latitude: 35.0116  // Latitude of Kyoto
+});
+
+var kyotoGraphic = new Graphic({
+    geometry: kyotoPoint,
+    symbol: symbol,
+    popupTemplate: {
+        title: "Kyoto",
+        content: [
+            {
+                type: "text",
+                text: "Population Size: 1,459,640"
+            },
+            {
+                type: "text",
+                text: "Land Size: 319.6 sq mi"
+            },
+            {
+                type: "text",
+                text: "Mayor: Daisaku Kadokawa"
+            },
+            {
+                type: "text",
+                text: "Transportation System Ranking: below 7th"
+            },
+            {
+                type: "text",
+                text: "Transportation: bus, taxi, bike, train"
+            },
+            {
+                type: "text",
+                text: "Restaurants: 3,500+"
+            },
+            {
+                type: "text",
+                text: "Hotels: 200+"
+            }
+        ]
+    }
+});
+
+view.graphics.add(kyotoGraphic);
+
+var hongKongPoint = new Point({
+    longitude: 114.1095,  // Longitude of Hong Kong
+    latitude: 22.3964  // Latitude of Hong Kong
+});
+
+var hongKongGraphic = new Graphic({
+    geometry: hongKongPoint,
+    symbol: symbol,
+    popupTemplate: {
+        title: "Hong Kong",
+        content: [
+            {
+                type: "text",
+                text: "Population Size: 7,482,500"
+            },
+            {
+                type: "text",
+                text: "Land Size: 426 sq mi"
+            },
+            {
+                type: "text",
+                text: "Chief Executive:  Lee Ka-chiu"
+            },
+            {
+                type: "text",
+                text: "Transportation System Ranking: 1st"
+            },
+            {
+                type: "text",
+                text: "Transportation: MTR, bus, taxi, ferry, tram"
+            },
+            {
+                type: "text",
+                text: "Restaurants: 15,000+"
+            },
+            {
+                type: "text",
+                text: "Hotels: 300+"
+            }
+        ]
+    }
+});
+
+view.graphics.add(hongKongGraphic);
+
+var newYorkCityPoint = new Point({
+    longitude: -74.0060,  // Longitude of New York City
+    latitude: 40.7128  // Latitude of New York City
+});
+
+var newYorkCityGraphic = new Graphic({
+    geometry: newYorkCityPoint,
+    symbol: symbol,
+    popupTemplate: {
+        title: "New York City",
+        content: [
+            {
+                type: "text",
+                text: "Population Size: 8,398,748"
+            },
+            {
+                type: "text",
+                text: "Land Size: 302.6 sq mi"
+            },
+            {
+                type: "text",
+                text: "Mayor: Eric Adams"
+            },
+            {
+                type: "text",
+                text: "Transportation System Ranking: 13th"
+            },
+            {
+                type: "text",
+                text: "Transportation: Subway, bus, taxi, bike"
+            },
+            {
+                type: "text",
+                text: "Restaurants: 27,000+"
+            },
+            {
+                type: "text",
+                text: "Hotels: 700+"
+            }
+        ]
+    }
+});
+
+view.graphics.add(newYorkCityGraphic);
+
+var athensPoint = new Point({
+    longitude: 23.7275,  // Longitude of Athens
+    latitude: 37.9838  // Latitude of Athens
+});
+
+var athensGraphic = new Graphic({
+    geometry: athensPoint,
+    symbol: symbol,
+    popupTemplate: {
+        title: "Athens",
+        content: [
+            {
+                type: "text",
+                text: "Population Size: 3,154,000"
+            },
+            {
+                type: "text",
+                text: "Land Size: 15.04 sq mi"
+            },
+            {
+                type: "text",
+                text: "Mayor: Haris Doukas"
+            },
+            {
+                type: "text",
+                text: "Transportation System Ranking: below 40th"
+            },
+            {
+                type: "text",
+                text: "Transportation: Metro, bus, tram, taxi"
+            },
+            {
+                type: "text",
+                text: "Restaurants: 2,500+"
+            },
+            {
+                type: "text",
+                text: "Hotels: 500+"
+            }
+        ]
+    }
+});
+
+view.graphics.add(athensGraphic);
+
+
 
          // Create the search widget and add it to the top right corner of the view
          var searchWidget = new Search({
