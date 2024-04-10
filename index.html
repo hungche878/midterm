@@ -74,50 +74,6 @@
           position: "top-left"
         });
 
-		const template = new PopupTemplate({
-		title: "Taipei",
-		content: [
-			{
-				type: "text",
-				text: "Population Size: 2,646,204"
-			},
-			{
-                type: "text",
-                text: "Land Size: 105.2 sq mi"
-            },
-            {
-                type: "text",
-                text: "Mayor: Chiang Wan-an"
-			},
-			{
-                type: "text",
-                text: "Transportation System Ranking: below 60th"
-            },
-			{
-                type: "text",
-                text: "Transportation: MRT, bus, YouBike, and taxi"
-            },
-			{
-                type: "text",
-                text: "Resturants: 500+"
-            },
-			{
-                type: "text",
-                text: "Hotels: 500+"
-            },
-		]
-		});
-
-        // Create featurelayer from feature service 
-        const layer = new FeatureLayer({ 
-        // URL to the service 
-        url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/survey123_ec3fb2b3518f49f2921cbe9749af7c5e_results/FeatureServer", //My item URL Goes Here
-		outFields: ["*"],
-    	popupTemplate: template
-        });
-
-        map.add(layer);
-
 	var symbol = new SimpleMarkerSymbol({
 		color: [226, 119, 40],  // Orange color
 		outline: {
@@ -126,11 +82,56 @@
 		}
 	});
 
+    var taipeiPoint = new Point({
+    longitude: 121.5654,  // Longitude of Taipei
+    latitude: 25.0330  // Latitude of Taipei
+});
+
+var taipeiGraphic = new Graphic({
+    geometry: taipeiPoint,
+    symbol: symbol,
+    popupTemplate: {
+        title: "Taipei",
+        content: [
+            {
+                type: "text",
+                text: "Population Size: 2,646,204"
+            },
+            {
+                type: "text",
+                text: "Land Size: 105.2 sq mi"
+            },
+            {
+                type: "text",
+                text: "Mayor: Chiang Wan-an"
+            },
+            {
+                type: "text",
+                text: "Transportation System Ranking: 10th"
+            },
+            {
+                type: "text",
+                text: "Transportation: Taipei Metro, bus, and bike sharing system"
+            },
+            {
+                type: "text",
+                text: "Restaurants: 20,000+"
+            },
+            {
+                type: "text",
+                text: "Hotels: 1,000+"
+            },
+        ]
+    }
+});
+
+view.graphics.add(taipeiGraphic);
+
+
 	var tokyoPoint = new Point({
         longitude: 139.6917,  // Longitude of Tokyo
         latitude: 35.6895  // Latitude of Tokyo
     });
-
 	var tokyoGraphic = new Graphic({
     geometry: tokyoPoint,
     symbol: symbol,
